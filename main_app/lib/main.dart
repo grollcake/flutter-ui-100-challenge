@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:main_app/model/ui_challenges.dart';
 
-void main() => runApp(MaterialApp(title: 'UI-100-Challenge', debugShowCheckedModeBanner: false, home: MyApp()));
+void main() => runApp(
+      MaterialApp(
+        title: 'UI-100-Challenge',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.indigo,
+        ),
+        home: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -37,13 +46,14 @@ class _MainPageState extends State<MainPage> {
           return ListTile(
             leading: Text(
               "${idx + 1}".padLeft(3, '0'),
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.grey[800]),
+              style: TextStyle(
+                  fontSize: 24, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.grey[800]),
             ),
             title: Text(
               uiChallenges[idx].title,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            subtitle: Text('blah'),
+            subtitle: Text(uiChallenges[idx].description),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => uiChallenges[idx].screen));
