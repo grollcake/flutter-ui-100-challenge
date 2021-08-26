@@ -17,5 +17,5 @@ class UIChallenge {
 List<UIChallenge> uiChallenges = [
   UIChallenge(title: 'Simple Calculator', description: 'Expanded의 활용', screen: Challenge001()),
   UIChallenge(title: 'Colorful Calculator', description: 'GridView.builder', screen: Challenge002()),
-  UIChallenge(title: 'Incoming Call', description: 'Stack', screen: Challenge003()),
+  UIChallenge(title: 'Incoming Call', description: 'Stack, CircleButton', screen: Challenge003()),
 ];

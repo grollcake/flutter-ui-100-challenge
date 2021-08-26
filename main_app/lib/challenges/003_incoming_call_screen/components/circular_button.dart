@@ -20,9 +20,10 @@ class CircularButton extends StatelessWidget {
         ),
         style: TextButton.styleFrom(
           backgroundColor: this.bgColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(64),
-          ),
+          // shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.circular(64),
+          // ),
+          shape: CircleBorder(),
         ),
       ),
     );

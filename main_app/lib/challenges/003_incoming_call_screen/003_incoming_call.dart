@@ -45,7 +45,7 @@ class Body extends StatelessWidget {
                 ),
                 SizedBox(height: 0),
                 Text(
-                  '일산의 자랑',
+                  '인생의 역작',
                   style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 SizedBox(height: 10),
