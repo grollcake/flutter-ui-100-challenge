@@ -5,14 +5,16 @@ class MemberGradeCard extends StatelessWidget {
     Key? key,
     required this.cardColor,
     required this.gradeLevel,
-    required this.price,
+    required this.priceText,
     required this.desc,
+    this.freeTry = false,
   }) : super(key: key);
 
   final Color cardColor;
   final String gradeLevel;
-  final int price;
+  final Widget priceText;
   final String desc;
+  final bool freeTry;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,8 @@ class MemberGradeCard extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            CardUpperSide(cardColor: cardColor, gradeLevel: gradeLevel, price: price, desc: desc),
-            CardLowerSide(cardColor: cardColor),
+            CardUpperSide(cardColor: cardColor, gradeLevel: gradeLevel, priceText: priceText, desc: desc),
+            CardLowerSide(cardColor: cardColor, freeTry: freeTry),
           ],
         ),
       ),
@@ -36,14 +38,14 @@ class CardUpperSide extends StatelessWidget {
     Key? key,
     required this.cardColor,
     required this.gradeLevel,
-    required this.price,
+    required this.priceText,
     required this.desc,
   }) : super(key: key);
 
   final double decoBoxSize = 20;
   final Color cardColor;
   final String gradeLevel;
-  final int price;
+  final Widget priceText;
   final String desc;
 
   @override
@@ -51,7 +53,7 @@ class CardUpperSide extends StatelessWidget {
     return Stack(
       children: [
         renderBackground(),
-        renderContents(),
+        renderContents(priceText),
       ],
     );
   }
@@ -84,9 +86,9 @@ class CardUpperSide extends StatelessWidget {
     );
   }
 
-  Container renderContents() {
+  Container renderContents(Widget priceText) {
     return Container(
-      height: 200,
+      height: 200, // 여기에 높이를 지정해야 자식 Column에서 Spacer를 사용할 수 있다.
       padding: EdgeInsets.only(top: 40, bottom: 20),
       child: Column(
         children: [
@@ -95,22 +97,7 @@ class CardUpperSide extends StatelessWidget {
             style: TextStyle(fontSize: 14, color: Colors.white, letterSpacing: 2),
           ),
           Spacer(flex: 1),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                r'$',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
-              ),
-              SizedBox(width: 3),
-              Text(
-                this.price.toString(),
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.white),
-              ),
-            ],
-          ),
+          priceText,
           Spacer(flex: 1),
           Text(
             this.desc,
@@ -127,16 +114,18 @@ class CardLowerSide extends StatelessWidget {
   const CardLowerSide({
     Key? key,
     required this.cardColor,
+    this.freeTry = false
   }) : super(key: key);
 
   final Color cardColor;
+  final bool freeTry;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 120,
       //width: double.infinity,
-      alignment:Alignment.topCenter,
+      alignment: Alignment.topCenter,
       decoration: BoxDecoration(color: cardColor.withOpacity(.2)),
       child: Column(
         children: [
@@ -162,7 +151,9 @@ class CardLowerSide extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(flex: 2),
+          Spacer(flex: 1),
+          this.freeTry ? Text('Try for free', style: TextStyle(fontSize: 16, color: cardColor)) : Container(),
+          Spacer(flex: 1),
         ],
       ),
     );

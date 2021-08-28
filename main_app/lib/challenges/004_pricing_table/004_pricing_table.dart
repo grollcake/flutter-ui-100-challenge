@@ -28,30 +28,60 @@ class Body extends StatelessWidget {
             MemberGradeCard(
               cardColor: Colors.deepPurpleAccent,
               gradeLevel: 'COMMUNITY',
-              price: 0,
+              priceText: _renderPriceText(null, 0, null),
               desc: 'Free forever',
             ),
             MemberGradeCard(
               cardColor: Colors.green,
               gradeLevel: 'BRONZE',
-              price: 29,
+              priceText: _renderPriceText(49, 29, null),
               desc: 'per month per project\nBilled annualy',
+              freeTry: true,
             ),
             MemberGradeCard(
               cardColor: Colors.teal,
               gradeLevel: 'SILVER',
-              price: 299,
+              priceText: _renderPriceText(null, 299, null),
               desc: 'per month per project\nBilled annualy',
+              freeTry: true,
             ),
             MemberGradeCard(
               cardColor: Colors.orange,
               gradeLevel: 'GOLD',
-              price: 599,
+              priceText: _renderPriceText(null, null, 'Contact US'),
               desc: 'per a quotation',
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _renderPriceText(int? originPrice, int? suggestPrice, String? priceMessage) {
+    var originPriceStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white, decoration: TextDecoration.lineThrough);
+    var suggestPriceStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.white);
+    var priceMessageStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white);
+
+    List<Widget> _priceLabel = [];
+
+    if (originPrice != null) {
+      _priceLabel.add(Text('\$$originPrice', style: originPriceStyle));
+      _priceLabel.add(SizedBox(width: 7));
+    }
+    if (suggestPrice != null) {
+      _priceLabel.add(Text('\$', style: suggestPriceStyle.copyWith(fontSize: 20)));
+      _priceLabel.add(SizedBox(width: 2));
+      _priceLabel.add(Text('$suggestPrice', style: suggestPriceStyle));
+    }
+    if (priceMessage != null) {
+      _priceLabel.add(Text('$priceMessage', style: priceMessageStyle));
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.baseline,
+      textBaseline: TextBaseline.alphabetic,
+      children: _priceLabel,
     );
   }
 }
