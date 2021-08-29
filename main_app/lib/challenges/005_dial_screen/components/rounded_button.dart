@@ -24,10 +24,11 @@ class RoundedButton extends StatelessWidget {
         onPressed: press,
         child: SvgPicture.asset(iconSrc, color: Colors.white, height: size * 3 / 5),
         style: TextButton.styleFrom(
-            backgroundColor: bgColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(size),
-            )),
+          backgroundColor: bgColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(size),
+          ),
+        ),
       ),
     );
   }
