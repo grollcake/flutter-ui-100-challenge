@@ -47,7 +47,7 @@ class _MainPageState extends State<MainPage> {
         itemBuilder: (BuildContext context, int idx) {
           return ListTile(
             leading: Text(
-              "${idx + 1}".padLeft(3, '0'),
+              "$idx".padLeft(3, '0'),
               style: TextStyle(
                   fontSize: 24, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.grey[800]),
             ),
