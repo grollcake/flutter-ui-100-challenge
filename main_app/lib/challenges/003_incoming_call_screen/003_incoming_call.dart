@@ -24,7 +24,7 @@ class Body extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Image.asset(
-          'assets/images/chanbyul001.jpg',
+          'assets/images/003/chanbyul001.jpg',
           fit: BoxFit.cover,
         ),
         DecoratedBox(

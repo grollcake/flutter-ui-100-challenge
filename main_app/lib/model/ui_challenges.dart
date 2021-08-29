@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:main_app/challenges/001_calculator.dart';
-import 'package:main_app/challenges/002_calculator.dart';
+import 'package:main_app/challenges/001_simple_calculator/001_calculator.dart';
+import 'package:main_app/challenges/002_colorful_calculator/002_colorful_calculator.dart';
 import 'package:main_app/challenges/003_incoming_call_screen/003_incoming_call.dart';
 import 'package:main_app/challenges/004_pricing_table/004_pricing_table.dart';
 

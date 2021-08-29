@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:main_app/model/ui_challenges.dart';
 
+// 이번에는 제대로 공부해보자
+
 void main() => runApp(
       MaterialApp(
         title: 'UI-100-Challenge',
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('UI-100-Challenge'),
+        title: Text('UI-100-Challenge!'),
         elevation: 0.0,
       ),
       body: MainPage(),
@@ -56,7 +58,10 @@ class _MainPageState extends State<MainPage> {
             subtitle: Text(uiChallenges[idx].description),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => uiChallenges[idx].screen));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => uiChallenges[idx].screen,
+                  ),
+              );
             },
           );
         },
