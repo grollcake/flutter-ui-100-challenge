@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding/constants/constants.dart';
 import 'package:onboarding/model/onbording_model.dart';
+import 'package:onboarding/screens/onboarding_widgets/onboarding_pageview.dart';
+import 'package:onboarding/screens/primary_button.dart';
 import 'package:onboarding/utils/sizeconfig.dart';
 import 'package:onboarding/widgets/common_widgets.dart';
 
@@ -42,78 +44,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.all(40.0),
           child: Column(
             children: [
+              // Sliding Pages
               Expanded(
                 flex: 8,
-                child: Container(
-                  color: Colors.white,
-                  child: PageView.builder(
-                    itemCount: onboardingContents.length,
-                    controller: pageController,
-                    onPageChanged: (value) {
-                      setState(() {
-                        pageNo = value;
-                      });
-                    },
-                    itemBuilder: (context, index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            onboardingContents[index].title,
-                            style: kTitleTextStyle,
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(
-                            height: sizeV * 50,
-                            width: sizeH * 80,
-                            // color: Colors.green,
-                            child: Image.asset(
-                              onboardingContents[index].image,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                          RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              style: kBodyTextStyle,
-                              children: [
-                                const TextSpan(text: 'WE CAN '),
-                                TextSpan(text: 'HELP YOU ', style: TextStyle(color: kPrimaryColor)),
-                                const TextSpan(text: 'TO BE A BETTER VERSION OF '),
-                                TextSpan(text: 'YOURSELF', style: TextStyle(color: kPrimaryColor)),
-                              ],
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
+                child: OnboardingPageView(
+                  pageController: pageController,
+                  onPageChanged: (value) {
+                    setState(() {
+                      pageNo = value;
+                    });
+                  },
                 ),
               ),
+              // Bottom Navigator
               Expanded(
                 flex: 2,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     pageNo == onboardingContents.length - 1
-                        ? SizedBox(
-                            height: sizeV * 7,
-                            width: sizeH * 100,
-                            child: TextButton(
-                              onPressed: () =>
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage())),
-                              child: Text(
-                                'Get Started',
-                                style: kBodyTextStyle.copyWith(color: Colors.white),
-                              ),
-                              style: TextButton.styleFrom(
-                                backgroundColor: kPrimaryColor,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ),
-                          )
+                        ? PrimaryButton(label: 'Get Started', onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage())),)
                         : buildIndicator(context),
                   ],
                 ),
