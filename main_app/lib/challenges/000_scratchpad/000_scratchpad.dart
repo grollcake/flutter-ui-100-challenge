@@ -20,15 +20,108 @@ class _Challenge000State extends State<Challenge000> {
         title: Text('낙서 연습장'),
         elevation: 0,
       ),
-      body: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        // color: Colors.amber,
-        padding: EdgeInsets.all(20),
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.amber,
+      body: LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.pinkAccent,
+      body: Column(
+        children: [
+          SizedBox(height: 50),
+          Text(
+            'Learn Free',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          SizedBox(height: 30),
+          Text(
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+          SizedBox(height: 50),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(18),
+                        hintText: 'Email...',
+                        prefixIcon: Icon(Icons.mail, color: Colors.grey),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(50),
+                        //   borderSide: BorderSide(
+                        //     color: Colors.grey,
+                        //   ),
+                        // ),
+                        // enabledBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(50),
+                        //   borderSide: BorderSide(
+                        //     color: Colors.grey,
+                        //   ),
+                        // ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DrawRainbow extends StatelessWidget {
+  DrawRainbow({Key? key}) : super(key: key);
+
+  final List<Color> _colors = [
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.green,
+    Colors.blue,
+    Colors.indigo,
+    Colors.purple
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: ListView.builder(
+          itemCount: _colors.length,
+          itemBuilder: (context, index) {
+            return Container(
+              height: 50,
+              margin: EdgeInsets.symmetric(vertical: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: _colors[index],
+              ),
+            );
+          },
+          shrinkWrap: true,
         ),
       ),
     );
