@@ -34,8 +34,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    double sizeH = SizeConfig.blockSizeH!;
-    double sizeV = SizeConfig.blockSizeV!;
+    // double sizeH = SizeConfig.blockSizeH!;
+    // double sizeV = SizeConfig.blockSizeV!;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -63,7 +63,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     pageNo == onboardingContents.length - 1
-                        ? PrimaryButton(label: 'Get Started', onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage())),)
+                        ? PrimaryButton(label: 'Get Started', onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const MainPage())),)
                         : buildIndicator(context),
                   ],
                 ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:main_app/challenges/006_doctor_consultant/constants/constants.dart';
@@ -34,7 +35,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text('Create Account'),
+            Text(
+              'Create Account',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
             Row(
               children: [
                 Text('Already have a account? '),
@@ -120,7 +124,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 class TextFieldLabel extends StatelessWidget {
   const TextFieldLabel({
-    Key? key, required this.label,
+    Key? key,
+    required this.label,
   }) : super(key: key);
 
   final String label;

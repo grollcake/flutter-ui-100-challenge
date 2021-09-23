@@ -48,8 +48,12 @@ class LoginScreen extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
               child: Column(
                 children: [
                   Padding(
@@ -60,23 +64,11 @@ class LoginScreen extends StatelessWidget {
                         hintText: 'Email...',
                         prefixIcon: Icon(Icons.mail, color: Colors.grey),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50),
+                          borderRadius: BorderRadius.circular(24),
                           borderSide: BorderSide(
                             color: Colors.grey,
                           ),
                         ),
-                        // focusedBorder: OutlineInputBorder(
-                        //   borderRadius: BorderRadius.circular(50),
-                        //   borderSide: BorderSide(
-                        //     color: Colors.grey,
-                        //   ),
-                        // ),
-                        // enabledBorder: OutlineInputBorder(
-                        //   borderRadius: BorderRadius.circular(50),
-                        //   borderSide: BorderSide(
-                        //     color: Colors.grey,
-                        //   ),
-                        // ),
                       ),
                     ),
                   )
