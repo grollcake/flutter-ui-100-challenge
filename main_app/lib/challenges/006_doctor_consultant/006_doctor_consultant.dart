@@ -67,15 +67,16 @@ class Body extends StatelessWidget {
                       onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen())),
                       child: Text('Sign in'),
                       style: TextButton.styleFrom(
-                          padding: EdgeInsets.all(16),
-                          backgroundColor: Colors.transparent,
-                          elevation: 0.0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            side: BorderSide(
-                              color: Color(0xff6cd8d1),
-                            ),
-                          )),
+                        padding: EdgeInsets.all(16),
+                        backgroundColor: Colors.transparent,
+                        elevation: 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                            color: Color(0xff6cd8d1),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
