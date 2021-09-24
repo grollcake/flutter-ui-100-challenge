@@ -8,6 +8,7 @@ import 'package:main_app/challenges/005_dial_screen/005_dial_screen.dart';
 import 'package:main_app/challenges/006_doctor_consultant/006_doctor_consultant.dart';
 import 'package:main_app/challenges/007_login_screen/screens/007_login_screen.dart';
 import 'package:main_app/challenges/008_color_check/008_color_check.dart';
+import 'package:main_app/challenges/009_searchable_list/screen/009_searchable_list.dart';
 
 class UIChallenge {
   final String title;
@@ -27,5 +28,6 @@ List<UIChallenge> uiChallenges = [
   UIChallenge(title: 'Doctor consultant', description: '이번에는 뭘 배우려나', screen: Challenge006()),
   UIChallenge(title: '아이디/패스워드 입력', description: 'TextField, Stack', screen: Challenge007()),
   UIChallenge(title: 'Color Check', description: 'GridView.count, List.generate', screen: Challenge008()),
+  UIChallenge(title: 'Searchable list', description: 'TextField, where, ', screen: Challenge009()),
 ];
 
